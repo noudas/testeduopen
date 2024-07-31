@@ -1,5 +1,22 @@
 # Teste Duopen
 
+## Índice
+
+- [Descrição](#descrição)
+- [Objetivos](#objetivos)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+  - [Frontend](#frontend)
+  - [Backend](#backend)
+  - [Infraestrutura](#infraestrutura)
+  - [API Externa](#api-externa)
+- [Como Executar Localmente](#como-executar-localmente)
+  - [Pré-requisitos](#pré-requisitos)
+  - [Passo a Passo](#passo-a-passo)
+    - [Clonando o Repositório](#clonando-o-repositorio)
+    - [Instalando Dependências](#instalando-dependências)
+    - [Iniciando o Projeto](#iniciando-o-projeto)
+- [Uso da API Pluggy](#uso-da-api-pluggy)
+
 ## Descrição
 
 Este projeto é uma aplicação full-stack desenvolvida para demonstrar a integração entre uma interface web React e uma API RESTful Flask, utilizando a API Pluggy para operações financeiras. A aplicação permite que os usuários insiram seus dados pessoais e aceitem termos de uso, e então esses dados são enviados para a API Pluggy para processamento.
@@ -41,6 +58,8 @@ Certifique-se de ter o Node.js, Python e Docker instalados em sua máquina.
 ### Passo a Passo
 
 #### Clonando o Repositório
+
+Clone este repositório para sua máquina local.
 
 Clone este repositório para sua máquina local.
 ```
