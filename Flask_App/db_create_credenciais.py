@@ -1,3 +1,5 @@
+# db_create_credenciais.py
+
 '''
 The `create_credenciais_table` function is responsible for creating a table named 'credenciais' in the database. 
 It takes a database connection object (`conn`) as its parameter and performs the following operations:

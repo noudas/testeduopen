@@ -1,3 +1,5 @@
+# db_create_instituicao.py
+
 '''
 This function, `create_instituicao_table`, is responsible for creating a table named 'instituicoes' in the database. 
 It accepts a database connection object as its parameter and uses this connection to execute SQL commands.

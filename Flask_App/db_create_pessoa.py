@@ -1,3 +1,5 @@
+# db_create_pessoa.py
+
 '''
 This function, `create_pessoas_table`, is responsible for creating a table named 'pessoas' in the database. 
 It takes a database connection object (`conn`) as its parameter, which is used to interact with the database.

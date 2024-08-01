@@ -1,3 +1,4 @@
+# app.py
 ''' 
 This script imports Flask, establishes a database connection, initializes database tables, and configures the application's routes. 
 
@@ -18,11 +19,13 @@ Note: This script assumes the existence of certain modules and functions within 
 ''' 
 
 from flask import Flask
+from flask_cors import CORS
 from . import db_create_pessoa, db_create_credenciais, db_create_instituicao , routes
 from .db_connect import get_db_connection
 
 def create_app():
     app = Flask(__name__)
+    CORS(app)
 
     conn = get_db_connection()
     if conn:

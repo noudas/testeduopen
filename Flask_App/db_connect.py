@@ -1,3 +1,4 @@
+# db_connect.py
 '''
 This script establishes a connection to a PostgreSQL database using environment variables for credentials and details. It utilizes the `psycopg2` library for database connectivity and `dotenv` for loading environment variables from a `.env` file.
 
