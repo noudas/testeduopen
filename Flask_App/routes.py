@@ -27,10 +27,10 @@ def get_api_key():
 # Initialize the Flask application and define routes
 def init_app(app):
     # Route to handle GET requests for transaction details by item ID
-    @app.route("/transacao/<item_id>", methods=["GET"])
-    def get_transaction_details(item_id):
+    @app.route("/transactions/<accountId>", methods=["GET"])
+    def get_transaction_details(accountId):
         """
-        Handles GET requests to "/transacao/<item_id>".
+        Handles GET requests to "/transacao/<accountId>".
         Authenticates using the client ID and secret, then retrieves transaction details for the specified item ID.
         Returns the transaction details on success or an error message on failure.
         """
@@ -50,7 +50,7 @@ def init_app(app):
         access_token = auth_response.json()["accessToken"]
 
         # Retrieve transactions
-        transactions_url = f'{Config.PLUGGY_API_BASE_URL}/items/{item_id}/transactions'
+        transactions_url = f'{Config.PLUGGY_API_BASE_URL}/transactions$accountId={accountId}'
         headers = {
             'Authorization': f'Bearer {access_token}'
         }
@@ -236,3 +236,25 @@ def init_app(app):
             return jsonify({"error": "Item not found"}), 404
         else:
             return jsonify({"error": "Server Internal Error"}), 500
+
+    @app.route("/accounts/<item_id>", methods=["GET"])
+    def get_all_accounts(item_id):
+        """
+        Handles GET requests to "/accounts".
+        Retrieves a list of all accounts using the API key.
+        Returns the list of accounts on success or an error message on failure.
+        """
+        try:
+            api_key = get_api_key()
+            accounts_url = f'https://api.pluggy.ai/accounts?itemId={item_id}'
+            headers = {
+                'X-API-KEY': api_key,
+                'accept': 'application/json'
+            }
+            response = requests.get(accounts_url, headers=headers)
+            if response.status_code == 200:
+                return jsonify(response.json())
+            else:
+                return jsonify({"error": f"Failed to fetch accounts. Status Code: {response.status_code}", "details": response.text}), response.status_code
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
