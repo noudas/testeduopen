@@ -1,5 +1,5 @@
 from flask import Flask
-from . import db_create_item, db_create_pessoa, routes
+from . import db_create_pessoa, db_create_credenciais, db_create_instituicao , routes
 from .db_connect import get_db_connection
 
 def create_app():
@@ -8,8 +8,9 @@ def create_app():
     conn = get_db_connection()
     if conn:
         print("Conectado ao DB com sucesso.")
-        db_create_item.create_itens_table(conn)
         db_create_pessoa.create_pessoas_table(conn)
+        db_create_instituicao.create_instituicao_table(conn)
+        db_create_credenciais.create_credenciais_table(conn)
     else:
         print("Falha ao conectar com o DB.")
 
