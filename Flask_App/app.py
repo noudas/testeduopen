@@ -11,7 +11,7 @@ def create_app():
     initialize_database()
 
     # Initialize and register routes
-    init_app(app)
+    init_app()
 
     return app
 
